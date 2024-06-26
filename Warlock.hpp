@@ -1,8 +1,8 @@
-#ifndef WARLOCK_HPP
-#define WARLOCK_HPP
-
+#pragma once
 #include <iostream>
 #include <string>
+#include <map>
+#include "ASpell.hpp"
 
 class Warlock {
     private:
@@ -13,6 +13,8 @@ class Warlock {
         Warlock(Warlock const &);
         Warlock & operator=(Warlock const &);
 
+        std::map < std::string, ASpell * > _SpellBook;
+
     public:
         Warlock(std::string const & name, std::string const & title);
         ~Warlock();
@@ -20,6 +22,7 @@ class Warlock {
         std::string const & getTitle() const;
         void setTitle(std::string const & title);
         void introduce() const;
+        void learnSpell(ASpell* spell);
+		void forgetSpell(std::string SpellName);
+		void launchSpell(std::string SpellName, ATarget const & target);
 };
-
-#endif
