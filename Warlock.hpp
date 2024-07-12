@@ -3,17 +3,21 @@
 #include <string>
 #include <map>
 #include "ASpell.hpp"
+#include "SpellBook.hpp"
+#include "ATarget.hpp"
 
 class Warlock {
     private:
         std::string _name;
         std::string _title;
+        SpellBook _spellBook;
 
         Warlock();
         Warlock(Warlock const &);
         Warlock & operator=(Warlock const &);
 
-        std::map < std::string, ASpell * > _SpellBook;
+        //std::map < std::string, ASpell * > _SpellBook;
+        //a enlever dans ex02
 
     public:
         Warlock(std::string const & name, std::string const & title);
