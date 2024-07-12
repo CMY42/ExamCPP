@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FIREBALL_HPP
+#define FIREBALL_HPP
 #include "ASpell.hpp"
 
 class Fireball : public ASpell
@@ -10,3 +11,5 @@ class Fireball : public ASpell
 
     	ASpell* clone() const;
 };
+
+#endif

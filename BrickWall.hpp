@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BRICKWALL_HPP
+#define BRICKWALL_HPP
 #include "ATarget.hpp"
 
 class BrickWall : public ATarget
@@ -8,3 +9,5 @@ class BrickWall : public ATarget
 		~BrickWall();
 		ATarget* clone() const;
 };
+
+#endif

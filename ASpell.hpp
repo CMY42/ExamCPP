@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ASPELL_HPP
+#define ASPELL_HPP
 #include <iostream>
 #include "ATarget.hpp"
 
@@ -20,3 +21,5 @@ class ASpell
 		virtual ASpell* clone() const = 0;
 		void launch(ATarget const & target) const;
 };
+
+#endif

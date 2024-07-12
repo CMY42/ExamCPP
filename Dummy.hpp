@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DUMMY_HPP
+#define DUMMY_HPP
 #include "ATarget.hpp"
 
 class Dummy : public ATarget
@@ -8,3 +9,5 @@ class Dummy : public ATarget
 		~Dummy();
 		ATarget* clone() const;
 };
+
+#endif

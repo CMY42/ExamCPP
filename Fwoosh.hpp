@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FWOOSH_HPP
+#define FWOOSH_HPP
 #include "ASpell.hpp"
 
 class Fwoosh : public ASpell
@@ -8,3 +9,5 @@ class Fwoosh : public ASpell
 		~Fwoosh();
 		ASpell* clone() const;
 };
+
+#endif
