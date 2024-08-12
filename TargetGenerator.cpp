@@ -1,41 +1,39 @@
 #include "TargetGenerator.hpp"
 
-TargetGenerator::TargetGenerator(TargetGenerator const & src)
-{
-	*this = src;
-}
-
-TargetGenerator & TargetGenerator::operator=(TargetGenerator const & src)
-{
-	_target = src._target;
-	return (*this);
-}
-
-
 TargetGenerator::TargetGenerator()
-{}
+{
 
+}
 TargetGenerator::~TargetGenerator()
-{}
+{
+	for (auto it = _TargetBook.begin(); it != _TargetBook.end(); ++it)
+		delete it->second; //it->second est la valeur ici pointeur ATarget*		//EXAM PASSE SANS?
 
+	_TargetBook.clear();
+}
 void TargetGenerator::learnTargetType(ATarget* target)
 {
-	if (target)
-	{
-		_target[target->getType()] = target;
-	}
+	if (target) // EXAM PASSE SANS?
+		_TargetBook[target->getType()] = target;
 }
-
 void TargetGenerator::forgetTargetType(std::string const & target)
 {
-	if (_target.find(target) != _target.end())
-		_target.erase(_target.find(target));
-}
+	/*auto it = _TargetBook.find(target);
+	if (it != _TargetBook.end())
+	{
+		delete it->second; // Libère l'objet avant de le retirer de la map
+		_TargetBook.erase(it);
+	}*/ // VERSION CORRECTE AVEC GESTION MEMOIRE
 
-ATarget* TargetGenerator::createTarget(std::string const &target)
+	if (_TargetBook.find(target) != _TargetBook.end())
+		_TargetBook.erase(_TargetBook.find(target));
+}
+ATarget* TargetGenerator::createTarget(std::string const & target)
 {
-	ATarget* tmp = NULL;
-	if (_target.find(target) != _target.end())
-		tmp = _target[target];
+	ATarget* tmp = nullptr;
+	if (_TargetBook.find(target) != _TargetBook.end())
+		tmp = _TargetBook[target];
 	return (tmp);
 }
+
+//gestion de la mémoire des objets ATarget a realiser a la place de simplement clear le Book
